@@ -19,6 +19,10 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+	gem 'pg'
+end
+
 #customizations
 gem 'bootstrap-sass'
 gem "autoprefixer-rails"

@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tinstuk</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=0.9">
-</head>
-<body>
+  <head>
+    <title>Tinstuk</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+  </head>
 
-
-<%= yield %>
-
-</body>
+  <body>	
+  
+  <!-- side bar off canvas --> 
+  <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+    <ul class="nav navmenu-nav">
+      <li class="active"><a href="#"><i class="fa fa-users"></i> Discover</a></li>
+  	<li><a href="#"><i class="fa fa-heart"></i> Matches</a></li>
+  	<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+    </ul>
+  </nav>
+  
+  <!-- top icon nav bar --> 
+  <div class="navbar navbar-default navbar-fixed-top">
+    <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+      <i class="fa fa-cog"></i>
+    </button>
+    <button type="button" class="navbar-toggle pull-right button-nav">
+  	<i class="fa fa-heart"></i>
+    </button>
+  </div>
+  
+  <!-- logo --> 
+  <a class="navbar-brand" href="#">
+     <%= image_tag "logo_white.png", alt: "Tinstuk Logo", class: "logo-brand" %>
+  </a>
+  
+  <%= yield %>
+  
+  </body>
 </html>

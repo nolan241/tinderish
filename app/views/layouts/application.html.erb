@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
   </head>
 
-  <body>	
+  <body>
   
-  <!-- side bar off canvas --> 
+  <!-- side bar off canvas uses jasny-bootstrap.js --> 
   <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
     <ul class="nav navmenu-nav">
       <li class="active"><a href="#"><i class="fa fa-users"></i> Discover</a></li>
@@ -35,6 +35,14 @@
   </a>
   
   <%= yield %>
+  
+  <!-- initialises the tooltips -->
+  <script type="text/javascript">
+  	$(function () {
+  		$('[data-toggle="tooltip"]').tooltip()
+  	})
+  </script>
+  
   
   </body>
 </html>

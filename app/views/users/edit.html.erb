@@ -1,2 +1,48 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+    <!-- interested in drop down-->
+    <h4 class="text-uppercase"><small>Interested in</small></h4>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+              Choose
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation" class="dropdown-header">Interested in</li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Female</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Male</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Both</a></li>
+        </ul>
+    </div>
+    
+    <!-- profile description -->
+    <h4 class="text-uppercase"><small>Profile Description</small></h4>
+    <textarea class="form-control" rows="5"></textarea>
+    
+    <h4 class="text-uppercase"><small>City</small></h4>
+    <input type="text" class="form-control">
+    
+    <h4 class="text-uppercase"><small>Age</small></h4>
+    <input type="text" class="form-control">
+    <br />
+    
+    <!-- profile image -->
+    <div class="text-center">
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+            <div class="fileinput-new thumbnail" style="width: 100px; height: 75px;">
+                <img data-src="holder.js/100%x100%" src="../assets/cat.jpg">
+            </div>
+            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 100px; max-height: 75px;"></div>
+        <div>
+            
+        <span class="btn btn-default btn-file">
+            <span class="fileinput-new">Select image</span>
+            <span class="fileinput-exists">Change</span>
+        </span>
+        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+    </div>
+</div>
+    
+<button type="button" class="btn btn-primary btn-block btn-xs">Submit</button>
+<br />
+<a href="">Cancel your account</a>
+

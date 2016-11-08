@@ -19,6 +19,8 @@ group :development do
   gem 'spring'
 end
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 group :production do
 	gem 'pg'
 end
@@ -27,3 +29,4 @@ end
 gem 'bootstrap-sass'
 gem "autoprefixer-rails"
 gem 'font-awesome-sass'
+gem 'omniauth-facebook'

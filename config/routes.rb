@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     member do
       get 'profile'
       get 'matches'
+    end  
   end
 end

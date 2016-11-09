@@ -30,3 +30,7 @@ gem 'bootstrap-sass'
 gem "autoprefixer-rails"
 gem 'font-awesome-sass'
 gem 'omniauth-facebook'
+gem "paperclip"
+
+#Amazon Web Service SDK for storing the profile picture
+gem 'aws-sdk', '~> 2'

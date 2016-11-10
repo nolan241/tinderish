@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 		find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_omniauth(auth)
 	end
     
-    # creates a new user with the fields provider, uid, name, gender, date_of_birth, location, bio passed in by the auth hash.
+    # creates a new user with the fields passed in by the auth hash.
 	def self.create_user_from_omniauth(auth)
         create(
                 
@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
 
     private
 
+    #parses the uri with an https scheme.
     def self.process_uri(uri)
         image_url = URI.parse(uri)
         image_url.scheme = 'https'

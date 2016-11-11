@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+    
+    # jtinder slide sort order 
+    default_scope { order('id DESC') }    
+    
     # for paperclip gem
 	has_attached_file :avatar,
 					  :storage => :s3,

@@ -2,6 +2,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require tinysort
+//= require jquery.tinysort
 //= require jquery.easing.min
 //= require jasny-bootstrap
 //= require supersized.3.2.7

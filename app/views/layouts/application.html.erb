@@ -40,6 +40,10 @@
 
 
 <script type="text/javascript">
+//* initialize the sort function by sorting the Tinderslide  li  elements by ID ... using 2 files in vendors js tinysort *//
+$("#tinderslide > ul li").tsort({attr:"id"});
+
+
 //* add the initialization script with 2 events onDislike onLike *//
 $("#tinderslide").jTinder({
     onDislike: function (item) {

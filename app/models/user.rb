@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
     
     # jtinder slide sort order 
     default_scope { order('id DESC') }    
+
+    # create association with users having friends
+	has_many :friendships, dependent: :destroy
+    has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
     
     # for paperclip gem
 	has_attached_file :avatar,

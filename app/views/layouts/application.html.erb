@@ -40,6 +40,12 @@
 
 
 <script type="text/javascript">
+/** Set button action to trigger jTinder like & dislike. */
+$('.actions .like, .actions .dislike').click(function(e){
+	e.preventDefault();
+	$("#tinderslide").jTinder($(this).attr('class'));
+});
+
 //* initialize the sort function by sorting the Tinderslide  li  elements by ID ... using 2 files in vendors js tinysort *//
 $("#tinderslide > ul li").tsort({attr:"id"});
 

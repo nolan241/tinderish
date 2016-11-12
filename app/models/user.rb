@@ -11,9 +11,10 @@ class User < ActiveRecord::Base
 	has_attached_file :avatar,
 					  :storage => :s3,
 					  :style => { :medium => "370x370", :thumb => "100x100" }
-
+    
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     
+    # ----begin omniauth
     # "sign_in_from_omniauth(auth)" from sessions_controller.rb calls directly on the User class
 	def self.sign_in_from_omniauth(auth)
 		find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_omniauth(auth)
@@ -34,6 +35,29 @@ class User < ActiveRecord::Base
     		bio: auth['extra']['raw_info']['bio']
 		)
 	end
+    # ----end omniauth
+
+    # Begin Friendship Match Methods
+    # first user/self requests match with user 2
+    def request_match(user2)
+        self.friendships.create(friend: user2)
+    end
+    
+    # first user/self accepts match with user 2
+    def accept_match(user2)
+        self.friendships.where(friend: user2).first.update_attribute(:state, "Active")
+    end
+    
+    #
+	def remove_match(user2)
+        inverse_friendship = inverse_friendships.where(user_id: user2).first
+          if inverse_friendship
+              self.inverse_friendships.where(user_id: user2).first.destroy
+          else
+              self.friendships.where(friend_id: user2).first.destroy
+          end
+    end    
+    # End Friendship Match Methods
 
     private
 

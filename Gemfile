@@ -31,6 +31,7 @@ gem "autoprefixer-rails"
 gem 'font-awesome-sass'
 gem 'omniauth-facebook'
 gem "paperclip"
+gem 'simple_form'
 
 #Amazon Web Service SDK for storing the profile picture
 gem 'aws-sdk', '~> 2'

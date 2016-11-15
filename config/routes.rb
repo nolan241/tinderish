@@ -13,5 +13,9 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   #For the session destroy action we'll add a regular delete request to the sessions destroy action.
   match 'sign_out', to: 'sessions#destroy', via: :delete  
+
+  # 
+  post    'create_friendship' => "frienships#create"
+  delete  'delete_frienship' => "friendships#destroy"
   
 end

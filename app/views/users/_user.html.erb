@@ -7,4 +7,5 @@
     <div class="user-location text-right"><i class="fa fa-map-marker"></i> London %></div>
     <div class="like"></div>
     <div class="dislike"></div>
+    <%= link_to "", create_friendship_path(friend_id: user.id), id: "user_#{user.id}", method: :post, :remote => true %> 
 </li>

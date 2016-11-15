@@ -55,9 +55,12 @@ $("#tinderslide").jTinder({
     onDislike: function (item) {
         alert('Dislike image ' + (item.index()+1));
     },
+    
+    //*onlike function basically fetches the last tinderslide element ( the element you're currently liking ) and click it*//
     onLike: function (item) {
-        alert('Like image ' + (item.index()+1));
-    },
+       var myId = $("#tinderslide > ul li").last().attr("id");
+	    $("#user_" + myId)[0].click();
+    }
     animationRevertSpeed: 200,
     animationSpeed: 400,
     threshold: 1,

@@ -8,6 +8,7 @@ class FriendshipsController < ApplicationController
         unless @inverse_friendship.blank?
             #if I have an inverse friendship, I want to accept it
             @friend.accept_match(current_user)
+            @friend.save
             @match = true
         else
             #if it does not have a friendship, request match

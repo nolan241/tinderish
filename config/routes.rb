@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   match 'sign_out', to: 'sessions#destroy', via: :delete  
 
   # 
-  post    'create_friendship' => "frienships#create"
-  delete  'delete_frienship' => "friendships#destroy"
+  post 'create_friendship' => "friendships#create"
+  delete 'delete_frienship' => "friendships#destroy"
+  
+  get 'matches/get_email' => "users#get_email"
   
 end

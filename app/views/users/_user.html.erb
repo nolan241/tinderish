@@ -2,7 +2,7 @@
 <li id="<%= user.id %>">
     <div class="img"><%= image_tag user.avatar.url, height: '370', width: '370' %></div> 
     <div class="user-name pull-left">
-    	<%= link_to profile_user_path(user.id) do %><b>James</b>, 35 %></a><% end %>
+    	<%= link_to profile_user_path(user.id) do %><b><%= user.name %></b>, 35 %></a><% end %>
     </div>
     <div class="user-location text-right"><i class="fa fa-map-marker"></i> London %></div>
     <div class="like"></div>

@@ -1,46 +1,47 @@
-<!--  -->
 <%= simple_form_for(@user, url: url_for(:action => 'update', :controller => 'users'), html: {multipart: true} ) do |f| %>
 
     <div class="container">
-    
+        Edit Profile: <%= current_user.name %>
+        
         <!-- Intersted in drop down -->
         <h4 class="text-uppercase"><small>Interested in</small></h4>
         <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-          <%= current_user.interest.capitalize %>
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-          <li role="presentation" class="dropdown-header">Interested in</li>
-          <li role="presentation" class="gender"><a role="menuitem" tabindex="-1" href="#">Female</a></li>
-          <li role="presentation" class="gender"><a role="menuitem" tabindex="-1" href="#">Male</a></li>
-          <li role="presentation" class="gender"><a role="menuitem" tabindex="-1" href="#">Both</a></li>
-        </ul>
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+              <%= current_user.interest.capitalize %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              <li role="presentation" class="dropdown-header">Interested in</li>
+              <li role="presentation" class="gender"><a role="menuitem" tabindex="-1" href="#">Female</a></li>
+              <li role="presentation" class="gender"><a role="menuitem" tabindex="-1" href="#">Male</a></li>
+              <li role="presentation" class="gender"><a role="menuitem" tabindex="-1" href="#">Both</a></li>
+            </ul>
         </div>
         <!-- check this --> 
         <%= f.input :interest, as: :hidden, label: false %>
 
         <!-- Profile description input box on users "bio" -->
         <h4 class="text-uppercase"><small>Profile Description</small></h4>
-        <%= f.input :bio, as: :text, class: "form-control", label: false, :input_html => { :rows => 5 } %>
+        <%= f.input :bio, as: :text, label: false, :input_html => { :rows => 5, class: 'form-control' } %>
         
         <!-- City input box on users "location"-->
         <h4 class="text-uppercase"><small>City</small></h4>
-        <%= f.input :location, class: "form-control", label: false %>
+        <%= f.input :location, label: false, :input_html => { :rows => 1, class: 'form-control' } %>
         
         <!-- Age input on users "date_of_birth" --> 
         <h4 class="text-uppercase"><small>Age</small></h4>
-        <%= f.input :date_of_birth, as: :string, class: "form-control", label: false %>
-
-        <!-- file input on users image -->        
+        <%= f.input :date_of_birth, as: :string, label: false, :input_html => { :rows => 1, class: 'form-control' } %>
+        <br>
+        
+        <!-- file input on users image -- not working -->        
         <div class="text-center">
           <div class="fileinput fileinput-new" data-provides="fileinput">
               <div class="fileinput-new thumbnail" style="width: 100px; height: 75px;">
-                <img data-src="holder.js/100%x100%" src="<%= current_user.image %>">
+                <img data-src="holder.js/100%x100%" src="<%= current_user.avatar %>">
               </div>
               <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 100px; max-height: 75px;"></div>
               <div>
-                <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><%= f.file_field :image %></span>
+                <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><%= f.file_field :avatar %></span>
                 <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
               </div>
             </div>

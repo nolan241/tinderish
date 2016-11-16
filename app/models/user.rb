@@ -59,6 +59,10 @@ class User < ActiveRecord::Base
     end    
     # End Friendship Match Methods
 
+    def accept_friendship
+		self.update_attributes(state: "active", friended_at: Time.now)
+	end
+
     private
 
     #parses the uri with an https scheme.

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     member do
       get 'profile'
       get 'matches'
-    end  
+    end
   end
   
   #Omniauth sign in and out 
@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   delete 'delete_frienship' => "friendships#destroy"
   
   get 'matches/get_email' => "users#get_email"
+
   
 end

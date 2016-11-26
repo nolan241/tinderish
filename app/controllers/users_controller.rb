@@ -2,19 +2,22 @@ class UsersController < ApplicationController
   before_action :require_login
 	
 	#set user before allowing access to user settings
-  before_action :set_user, only: [:edit, :profile, :update, :destroy, :get_email, :matches]
+  before_action :set_user, only:[:edit, :profile, :update, :destroy, :get_email, :matches]
 	
   # old fetching all the users and assign them to the @users instance variable.... removed @users = User.all
   # 
 	def index
 	  # getting the users, on the index action, according with the url params sent via the Plugin. 
 	  # using javascript response in index.js.erb under the views/users folder.
+    # filter to display results by gender. see models/user.rb => def self.gender(user)
+    # filter to exclude current user from list. add not_me => see models/user.rb => def self.not_me(current_user)
     if params[:id]
-      @users = User.where('id < ?', params[:id]).limit(2)
+      @users = User.gender(current_user).where('id < ?', params[:id]).not_me(current_user).limit(10) - current_user.matches(current_user)
     else
-      @users = User.all.limit(2)
+      @users = User.gender(current_user).not_me(current_user).limit(10) - current_user.matches(current_user)
     end
 
+    # 
     respond_to do |format|
       format.html
       format.js
@@ -28,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(users_params)
+    if @user.update(user_params)
       respond_to do |format|
         format.html { redirect_to users_path}
       end

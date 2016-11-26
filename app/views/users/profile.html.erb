@@ -1,15 +1,15 @@
-<div class="container">
-    <div class="wrap">
-        <div class="profile-box">
-            <div class="img">
-               <%= image_tag "cat.jpg", width: "100%", heigth: "100%" %>
-           </div>
-           <div class="user-name pull-left"><a href=""><b>Name</b>, 27</a></div>
-           <div class="user-location text-right"><i class="fa fa-map-marker"></i> London</div>
-           <div class="description">
-               <h4 class="text-uppercase"><small>Description</small></h4>
-               <p class="small">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-           </div>
-       </div>
-   </div>
-</div>
+  <div class="container">
+      <div class="wrap">
+          <div class="profile-box">
+              <div class="img">
+                 <%= image_tag @user.avatar(:medium), width: "100%", heigth: "100%"  %>
+             </div>
+             <div class="user-name pull-left"><a href=""><b><%= name(@user) %></b>, <%= age(@user) %></a></div>
+             <div class="user-location text-right"><i class="fa fa-map-marker"></i> <%= @user.location %></div>
+             <div class="description">
+                 <h4 class="text-uppercase"><small>Description</small></h4>
+                 <p class="small"><%= @user.bio %></p>
+             </div>
+         </div>
+     </div>
+  </div>

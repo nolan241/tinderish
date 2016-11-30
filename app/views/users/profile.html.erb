@@ -2,7 +2,7 @@
       <div class="wrap">
           <div class="profile-box">
               <div class="img">
-                 <%= image_tag @user.avatar(:medium), width: "100%", heigth: "100%"  %>
+                 <%= image_tag @user.avatar.url(:original), width: "100%", heigth: "100%"  %>
              </div>
              <div class="user-name pull-left"><a href=""><b><%= name(@user) %></b>, <%= age(@user) %></a></div>
              <div class="user-location text-right"><i class="fa fa-map-marker"></i> <%= @user.location %></div>

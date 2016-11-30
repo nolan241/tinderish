@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_login
 	
 	#set user before allowing access to user settings
-  before_action :set_user, only:[:edit, :profile, :update, :destroy, :get_email, :matches]
+	before_action :set_user, only:[:edit, :profile, :update, :destroy, :get_email, :matches]
 	
   # old fetching all the users and assign them to the @users instance variable.... removed @users = User.all
   # 
@@ -24,11 +24,9 @@ class UsersController < ApplicationController
     end
   end	  
 	
-  def edit
-  end
-    
-  def profile
-  end
+	def edit
+	   authorize! :update, @user
+	end
 
   def update
     if @user.update(user_params)
@@ -49,8 +47,13 @@ class UsersController < ApplicationController
       redirect_to edit_user_path(@user)
     end
   end
+    
+  def profile
+  end
+  
   #variable @matches joins all the ACTIVE friendships and inverse_friendships that the user has which will give the collection of matches they have.
   def matches
+      authorize! :read, @user
     @matches = current_user.friendships.where(state: "ACTIVE").map(&:friend) + current_user.inverse_friendships.where(state: "ACTIVE").map(&:user)
   end
 

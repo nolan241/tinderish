@@ -9,4 +9,6 @@
 //= require supersized.3.2.7
 //= require jquery.jTinder
 //= require jquery.transform2d
+//= require sweetalert.min
+//= require data-confirm-modal
 //= require_tree .

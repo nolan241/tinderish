@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/ifad/data-confirm-modal.git
+  revision: ffb29b28d033438a86fb8681e156c5e460cea3ca
+  specs:
+    data-confirm-modal (1.2.0)
+      railties (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,6 +59,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.6)
+    cancancan (1.15.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -202,7 +210,9 @@ DEPENDENCIES
   aws-sdk (~> 2)
   bootstrap-sass
   byebug
+  cancancan
   coffee-rails (~> 4.1.0)
+  data-confirm-modal!
   dotenv-rails
   font-awesome-sass
   jbuilder (~> 2.0)

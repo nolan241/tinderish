@@ -32,6 +32,8 @@ gem 'font-awesome-sass'
 gem 'omniauth-facebook'
 gem "paperclip"
 gem 'simple_form'
+gem "cancancan"
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 
 #Amazon Web Service SDK for storing the profile picture
 gem 'aws-sdk', '~> 2'

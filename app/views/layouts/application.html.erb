@@ -11,21 +11,39 @@
 
 <% if current_user %>
 	<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
-	  <ul class="nav navmenu-nav">
-	    <li class="active"><a href="#"><i class="fa fa-users"></i> Discover</a></li>
-		<li><a href="#"><i class="fa fa-heart"></i> Matches</a></li>
-		<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-		<li><%= link_to '/sign_out', method: :delete do %><i class="fa fa-cog"></i> Log Out <% end %></li>
-	  </ul>
+		<ul class="nav navmenu-nav">
+		
+			<li class="<%= if params[:action] == "index" then "active" end %> nav-btn">
+				<%= link_to root_path do %><i class="fa fa-users"></i> Discover <% end %>
+			</li>
+
+			<li class="<%= if params[:action] == "matches" then "active" end %> nav-btn">
+				<%= link_to matches_user_path(current_user) do %><i class="fa fa-heart"></i> Matches <% end %>
+			</li>
+
+			<li class="<%= if params[:action] == "edit" then "active" end %> nav-btn">
+				<%= link_to edit_user_path(current_user) do %><i class="fa fa-cog"></i> Settings <% end %>
+			</li>
+
+			<li class="nav-btn"><%= link_to '/sign_out', method: :delete do %><i class="fa fa-cog"></i> Log out <% end %></li>
+
+		</ul>
 	</nav>
 
 	<div class="navbar navbar-default navbar-fixed-top">
-	  <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-	    <i class="fa fa-cog"></i>
-	  </button>
-	  <button type="button" class="navbar-toggle pull-right button-nav">
-		<i class="fa fa-heart"></i>
-	  </button>
+	  
+		  <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+		  	<i class="fa fa-cog"></i>
+		  </button>
+
+		  <%= link_to root_path, class: "navbar-brand" do %>
+		  	<%= image_tag "logo.png", alt: "Tinstuk logo", class: "logo-brand" %>
+		  <% end %>
+
+		  <button type="button" class="navbar-toggle button-nav pull-right">
+		  	<%= link_to matches_user_path(current_user) do %><i class="fa fa-heart"></i><% end %>
+		  </button>
+
 	</div>
 
 <% else %>
@@ -40,6 +58,15 @@
 
 
 <script type="text/javascript">
+
+// Allow to load more
+var load_more = true;
+// Hide Spinner
+$(".spinner").hide();
+// Tooltip
+$('[data-toggle="tooltip"]').tooltip();
+
+
 /** Set button action to trigger jTinder like & dislike. */
 $('.actions .like, .actions .dislike').click(function(e){
 	e.preventDefault();
@@ -53,7 +80,7 @@ $("#tinderslide > ul li").tsort({attr:"id"});
 //* add the initialization script with 2 events onDislike onLike *//
 $("#tinderslide").jTinder({
     onDislike: function (item) {
-        alert('Dislike image ' + (item.index()+1));
+        //
     },
     
     //*onlike function basically fetches the last tinderslide element ( the element you're currently liking ) and click it*//
@@ -67,6 +94,14 @@ $("#tinderslide").jTinder({
     likeSelector: '.like',
     dislikeSelector: '.dislike'
 });
+
+//* hover effects to the navbar buttons *//
+$(".nav-btn").hover(function(){
+	$(this).addClass("active2");
+	}, function(){
+	$(this).removeClass("active2");	
+});
+	
 </script>
 
 </body>

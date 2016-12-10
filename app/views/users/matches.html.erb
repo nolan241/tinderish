@@ -11,7 +11,13 @@
 		</thead>
 	<tbody>
 	    <!-- match rows --> 
-		<%= render partial: "match", collection: @friendships %>
+		<%= render partial: "match", collection: @matches %>
 	</tbody>
     </table>
 </div>
+
+<script type="text/javascript">
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>

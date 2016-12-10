@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   
   #variable @matches joins all the ACTIVE friendships and inverse_friendships that the user has which will give the collection of matches they have.
   def matches
-      authorize! :read, @user
+    authorize! :read, @user
     @matches = current_user.friendships.where(state: "ACTIVE").map(&:friend) + current_user.inverse_friendships.where(state: "ACTIVE").map(&:user)
   end
 

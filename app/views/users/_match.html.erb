@@ -10,14 +10,12 @@
 	
 	<!-- buttons --> 
 	<td class="text-right">
-		
-		<%= link_to matches_get_email_path(id: "#{match.id}"), :data => {toggle: "tooltip", placement: "top"}, title: "Get Email", remote: :true do %>
+		<%= link_to matches_get_email_path(id: "#{match.id}"), :data => {toggle: "tooltip", placement: "top" }, title: "Get Email", remote: :true  do %>
 			<i class="fa fa fa-envelope"></i>
 		<% end %>
-		
-		<a href="" data-toggle="tooltip" data-placement="top" title="Get Email"><i class="fa fa fa-envelope"></i></a>
-		<%= link_to destroy_friendships_path(friend_id: match.id), :data => {toggle: "tooltip", placement: "top", confirm: "Are you sure you want to unmatch with #{match.name}?" }, title: "Unmatch", id: "delete_friendship", method: :delete  do %>
-			<i class="fa fa-times"></i>
+	
+		<%= link_to delete_friendship_path(friend_id: match.id), :data => {toggle: "tooltip", placement: "top", confirm: "Are you sure you want to unmatch with #{match.name} ?" }, title: "Unmatch", id: "delete_friendship", method: :delete do %>
+			<i class="fa fa fa-times"></i>
 		<% end %>
 	</td>
 </tr>

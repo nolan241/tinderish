@@ -1,6 +1,6 @@
 <tr>
 	<!-- image -->
-	<th scope="row"><%= image_tag "#{match.avatar(:thumb)}", size: "30x30" %></th>
+	<th scope="row"><%= image_tag "#{match.avatar.url(:original)}", size: "50x50" %></th>
 	
 	<!-- name -->
 	<td><%= link_to match.name, profile_user_path(match.id) %></td> 
@@ -19,5 +19,3 @@
 		<% end %>
 	</td>
 </tr>
-
-this is not showing up as partial

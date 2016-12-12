@@ -57,52 +57,52 @@
 <%= yield %>
 
 
-<script type="text/javascript">
-
-// Allow to load more
-var load_more = true;
-// Hide Spinner
-$(".spinner").hide();
-// Tooltip
-$('[data-toggle="tooltip"]').tooltip();
-
-
-/** Set button action to trigger jTinder like & dislike. */
-$('.actions .like, .actions .dislike').click(function(e){
-	e.preventDefault();
-	$("#tinderslide").jTinder($(this).attr('class'));
-});
-
-//* initialize the sort function by sorting the Tinderslide  li  elements by ID ... using 2 files in vendors js tinysort *//
-$("#tinderslide > ul li").tsort({attr:"id"});
-
-
-//* add the initialization script with 2 events onDislike onLike *//
-$("#tinderslide").jTinder({
-    onDislike: function (item) {
-        //
-    },
-    
-    //*onlike function basically fetches the last tinderslide element ( the element you're currently liking ) and click it*//
-    onLike: function (item) {
-       var myId = $("#tinderslide > ul li").last().attr("id");
-	    $("#user_" + myId)[0].click();
-    },
-    animationRevertSpeed: 200,
-    animationSpeed: 400,
-    threshold: 1,
-    likeSelector: '.like',
-    dislikeSelector: '.dislike'
-});
-
-//* hover effects to the navbar buttons *//
-$(".nav-btn").hover(function(){
-	$(this).addClass("active2");
-	}, function(){
-	$(this).removeClass("active2");	
-});
+	<script type="text/javascript">
 	
-</script>
+		// Allow to load more
+		var load_more = true;
+		// Hide Spinner
+		$(".spinner").hide();
+		// Tooltip
+		$('[data-toggle="tooltip"]').tooltip();
+		
+		
+		/** Set button action to trigger jTinder like & dislike. */
+		$('.actions .like, .actions .dislike').click(function(e){
+			e.preventDefault();
+			$("#tinderslide").jTinder($(this).attr('class'));
+		});
+		
+		//* initialize the sort function by sorting the Tinderslide  li  elements by ID ... using 2 files in vendors js tinysort *//
+		$("#tinderslide > ul li").tsort({attr:"id"});
+		
+		
+		//* add the initialization script with 2 events onDislike onLike *//
+		$("#tinderslide").jTinder({
+		    onDislike: function (item) {
+		        //
+		    },
+		    
+		    //*onlike function basically fetches the last tinderslide element ( the element you're currently liking ) and click it*//
+		    onLike: function (item) {
+		       var myId = $("#tinderslide > ul li").last().attr("id");
+			    $("#user_" + myId)[0].click();
+		    },
+		    animationRevertSpeed: 200,
+		    animationSpeed: 400,
+		    threshold: 1,
+		    likeSelector: '.like',
+		    dislikeSelector: '.dislike'
+		});
+		
+		//* hover effects to the navbar buttons *//
+		$(".nav-btn").hover(function(){
+			$(this).addClass("active2");
+			}, function(){
+			$(this).removeClass("active2");	
+		});
+			
+	</script>
 
 </body>
 </html>

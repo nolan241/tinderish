@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
     
     # first user/self accepts match with user 2
     def accept_match(user2)
-        self.friendships.where(friend: user2).first.update_attribute(:state, "Active")
+        self.friendships.where(friend: user2).first.update_attribute(:state, "ACTIVE")
     end
     
     #
